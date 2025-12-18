@@ -110,28 +110,28 @@ cutoff <- 0.5
 # ============================================================
 # MODEL 1: Logistic Regression
 # ============================================================
-model_logit <- glm(
+model_logitic <- glm(
   high_pm25 ~ wind_speed + wd_sin + wd_cos + hour + month + wday,
   data = train,
   family = binomial()
 )
 
 cat("\n--- Logistic Regression Summary ---\n")
-print(summary(model_logit))
+print(summary(model_logitic))
 
-test$prob_high_logit <- predict(model_logit, newdata = test, type = "response")
-test$pred_high_logit <- ifelse(test$prob_high_logit >= cutoff, 1, 0)
+test$prob_high_logitic <- predict(model_logitic, newdata = test, type = "response")
+test$pred_high_logitic <- ifelse(test$prob_high_logitic >= cutoff, 1, 0)
 
-cm_logit <- caret::confusionMatrix(
-  factor(test$pred_high_logit, levels = c(0,1)),
+cm_logitic <- caret::confusionMatrix(
+  factor(test$pred_high_logitic, levels = c(0,1)),
   factor(test$high_pm25, levels = c(0,1))
 )
 cat("\n--- Logistic Confusion Matrix ---\n")
-print(cm_logit)
+print(cm_logitic)
 
-roc_logit <- pROC::roc(test$high_pm25, test$prob_high_logit, quiet = TRUE)
-auc_logit <- pROC::auc(roc_logit)
-cat("\nLogistic AUC:", as.numeric(auc_logit), "\n")
+roc_logitic <- pROC::roc(test$high_pm25, test$prob_high_logitic, quiet = TRUE)
+auc_logitic <- pROC::auc(roc_logitic)
+cat("\nLogistic AUC:", as.numeric(auc_logitic), "\n")
 
 # ============================================================
 # MODEL 2: Random Forest (ranger)
@@ -176,10 +176,10 @@ cat("\nRF AUC:", as.numeric(auc_rf), "\n")
 # ============================================================
 compare_models <- data.frame(
   Model = c("Logistic", "Random Forest"),
-  AUC = c(as.numeric(auc_logit), as.numeric(auc_rf)),
-  Accuracy = c(cm_logit$overall["Accuracy"], cm_rf$overall["Accuracy"]),
-  Sensitivity = c(cm_logit$byClass["Sensitivity"], cm_rf$byClass["Sensitivity"]),
-  Specificity = c(cm_logit$byClass["Specificity"], cm_rf$byClass["Specificity"])
+  AUC = c(as.numeric(auc_logitic), as.numeric(auc_rf)),
+  Accuracy = c(cm_logitic$overall["Accuracy"], cm_rf$overall["Accuracy"]),
+  Sensitivity = c(cm_logitic$byClass["Sensitivity"], cm_rf$byClass["Sensitivity"]),
+  Specificity = c(cm_logitic$byClass["Specificity"], cm_rf$byClass["Specificity"])
 )
 
 cat("\n--- Model Comparison ---\n")
@@ -188,11 +188,11 @@ print(compare_models)
 # ============================================================
 # 7) Plots: ROC curves + RF feature importance
 # ============================================================
-plot(roc_logit, main = "ROC: Logistic vs Random Forest")
+plot(roc_logitic, main = "ROC: Logistic vs Random Forest")
 plot(roc_rf, add = TRUE)
 legend(
   "bottomright",
-  legend = c(paste0("Logistic AUC = ", round(as.numeric(auc_logit), 3)),
+  legend = c(paste0("Logistic AUC = ", round(as.numeric(auc_logitic), 3)),
              paste0("RF AUC = ", round(as.numeric(auc_rf), 3))),
   lty = 1, bty = "n"
 )
@@ -208,7 +208,7 @@ cat("\n--- RF Feature Importance ---\n")
 print(importance_df)
 
 ggplot(importance_df, aes(x = reorder(feature, importance), y = importance)) +
-  geom_col() +
+  geom_col(fill = "#4C72B0") +
   coord_flip() +
   labs(
     title = "Random Forest Feature Importance (Permutation)",
@@ -220,9 +220,9 @@ ggplot(importance_df, aes(x = reorder(feature, importance), y = importance)) +
 # ============================================================
 # 8) Plot: predicted risk vs wind speed
 # ============================================================
-ggplot(test, aes(x = wind_speed)) +
-  geom_point(aes(y = prob_high_logit), alpha = 0.15) +
-  geom_smooth(aes(y = prob_high_logit)) +
+ggplot(test, aes(x = wind_speed, y = prob_high_logitic)) +
+  geom_point(color  = "#4C72B0", alpha = 0.15) +
+  geom_smooth(color = "#DD8452", se = TRUE) +
   labs(
     title = "Logistic: Predicted probability of high PM2.5 vs wind speed",
     x = "Wind speed (m/s)",
@@ -230,9 +230,9 @@ ggplot(test, aes(x = wind_speed)) +
   ) +
   theme_minimal()
 
-ggplot(test, aes(x = wind_speed)) +
-  geom_point(aes(y = prob_high_rf), alpha = 0.15) +
-  geom_smooth(aes(y = prob_high_rf)) +
+ggplot(test, aes(x = wind_speed , y = prob_high_rf)) +
+  geom_point(color  = "#4C72B0", alpha = 0.15) +
+  geom_smooth(color = "#DD8452") +
   labs(
     title = "Random Forest: Predicted probability of high PM2.5 vs wind speed",
     x = "Wind speed (m/s)",
