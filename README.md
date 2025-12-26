@@ -69,8 +69,8 @@ ggplot2
 caret
 pROC
 ranger
-
-Steps
+...
+##Steps
 Clone this repository:
 git clone https://github.com/yourusername/IJC437-PM25-Prediction.git
 Open the project in RStudio
@@ -82,11 +82,11 @@ Predicted probabilities of high PM2.5 events
 ROC curves and AUC scores for logistic regression and random forest models
 Confusion matrices
 Random forest feature importance plots
-Notes on Interpretation
+##Notes on Interpretation
 The results describe associations, not causal relationships.
 Only meteorological variables are used; emission source data are not included.
 The use of a single script prioritises transparency and ease of reproduction.
-Author
+##Author
 Poom Yoochareonpong
 MSc Data Science
 University of Sheffield
