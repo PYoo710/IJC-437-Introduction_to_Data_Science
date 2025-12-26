@@ -69,7 +69,7 @@ ggplot2
 caret
 pROC
 ranger
-```markdown
+```
 ##Steps
 Clone this repository:
 git clone https://github.com/yourusername/IJC437-PM25-Prediction.git
