@@ -46,10 +46,9 @@ The complete data-science workflow is implemented in a **single R script (`main.
 ## Repository Structure
 ```text
 IJC437-PM25-Prediction/
-├── data/        # Input datasets
-├── figures/     # Generated plots and visual outputs
-├── results/     # Model evaluation outputs
-├── main.R       # Complete analysis pipeline
+├── datasets/       
+├── results/     
+├── main.R       
 └── README.md
 ```
 ---
@@ -74,7 +73,7 @@ ranger
 
 1. Clone this repository:
    ```bash
-   git clone https://github.com/yourusername/IJC437-PM25-Prediction.git
+   git clone https://github.com/PYoo710/IJC-437-Introduction_to_Data_Science.git
 ## Open the project in RStudio
 Install any missing packages
 Open main.R and run the script from top to bottom
