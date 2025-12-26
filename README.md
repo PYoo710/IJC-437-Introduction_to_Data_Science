@@ -45,11 +45,9 @@ The complete data-science workflow is implemented in a **single R script (`main.
 
 ## Repository Structure
 IJC437-PM25-Prediction/
-│
-├── data/ # Input datasets
-├── figures/ # Generated plots and visual outputs
-├── results/ # Model evaluation outputs
-├── main.R # Complete analysis pipeline
+├── data/        
+├── results/     # Model evaluation outputs
+├── main.R       # Complete analysis pipeline
 └── README.md
 
 ---
@@ -75,20 +73,20 @@ ranger
 1. Clone this repository:
    ```bash
    git clone https://github.com/yourusername/IJC437-PM25-Prediction.git
-Open the project in RStudio
+## Open the project in RStudio
 Install any missing packages
 Open main.R and run the script from top to bottom
 All outputs will be saved to the figures/ and results/ folders.
-Key Outputs
+## Key Outputs
 Predicted probabilities of high PM2.5 events
 ROC curves and AUC scores for logistic regression and random forest models
 Confusion matrices
 Random forest feature importance plots
-Notes on Interpretation
+## Notes on Interpretation
 The results describe associations, not causal relationships
 Only meteorological variables are used; emission source data are not included
 The use of a single script prioritises transparency and ease of reproduction
-Author
+## Author
 Poom Yoochareonpong
 MSc Data Science
 University of Sheffield
