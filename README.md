@@ -48,7 +48,7 @@ The complete data-science workflow is implemented in a **single R script (`main.
 IJC437-PM25-Prediction/
 ├── datasets/       
 ├── results/     
-├── main.R       
+├── Report_Introduction_to_DS.R      
 └── README.md
 ```
 ---
