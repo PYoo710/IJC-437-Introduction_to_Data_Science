@@ -63,7 +63,7 @@ IJC-437-Introduction_to_Data_Science/
 │   └── wind/
 │       └── wind.csv
 ├── Report_Introduction_to_DS.R
-├── README.md
+└── README.md
 
 ```
 ---
@@ -89,10 +89,13 @@ ranger
 1. Clone this repository:
    ```bash
    git clone https://github.com/PYoo710/IJC-437-Introduction_to_Data_Science.git
-## Open the project in RStudio
-Install any missing packages
-Open main.R and run the script from top to bottom
-All outputs will be saved to the figures/ and results/ folders.
+   ```
+2. Open the project in RStudio
+3. Ensure the working directory is set to the project root
+4. Install any missing R packages if prompted
+5. Open Report_Introduction_to_DS.R
+6. Run the script from top to bottom
+All outputs (figures and model results) will be generated during execution.
 ## Key Outputs
 Predicted probabilities of high PM2.5 events
 ROC curves and AUC scores for logistic regression and random forest models
