@@ -45,11 +45,26 @@ The complete data-science workflow is implemented in a **single R script (`main.
 
 ## Repository Structure
 ```text
-IJC437-PM25-Prediction/
-├── datasets/       
-├── results/     
-├── Report_Introduction_to_DS.R      
-└── README.md
+IJC-437-Introduction_to_Data_Science/
+├── Dataset/
+│   ├── pm/
+│   │   ├── Jan.csv
+│   │   ├── Feb.csv
+│   │   ├── Mar.csv
+│   │   ├── Apr.csv
+│   │   ├── May.csv
+│   │   ├── Jun.csv
+│   │   ├── Jul.csv
+│   │   ├── Aug.csv
+│   │   ├── Sep.csv
+│   │   ├── Oct.csv
+│   │   ├── Nov2023.csv
+│   │   └── Dec2023.csv
+│   └── wind/
+│       └── wind.csv
+├── Report_Introduction_to_DS.R
+├── README.md
+
 ```
 ---
 
