@@ -44,12 +44,14 @@ The complete data-science workflow is implemented in a **single R script (`main.
 ---
 
 ## Repository Structure
+```text
 IJC437-PM25-Prediction/
-├── data/        
+├── data/        # Input datasets
+├── figures/     # Generated plots and visual outputs
 ├── results/     # Model evaluation outputs
 ├── main.R       # Complete analysis pipeline
 └── README.md
-
+```
 ---
 
 ## How to Run the Code
