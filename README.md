@@ -32,7 +32,7 @@ All data used in this project are secondary datasets and were cleaned and proces
 ---
 
 ## Methods
-The complete data-science workflow is implemented in a **single R script (`main.R`)**, following these steps:
+The complete data-science workflow is implemented in a **single R script (`Report_Introduction_to_DS.R`)**, following these steps:
 
 1. Data loading and preprocessing  
 2. Feature engineering and creation of a binary high PM2.5 indicator  
